@@ -1,0 +1,17 @@
+/* Frosted UI ships unlayered CSS, which would otherwise beat Tailwind's layered
+   utilities on equal specificity. Ordering it below `utilities` lets plain
+   utility classes override component styling. */
+@layer theme, base, frosted, components, utilities;
+
+@import "tailwindcss";
+@import "frosted-ui/styles.css" layer(frosted);
+@config "../../tailwind.config.ts";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: var(--font-geist-sans), sans-serif;
+}
