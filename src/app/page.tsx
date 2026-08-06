@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button, Heading, Text } from "frosted-ui";
 import { EarningsTicker } from "@/components/earnings-ticker";
-import { PhotoStack } from "@/components/photo-stack";
 import { SiteHeader } from "@/components/site-header";
 import { StatsRow } from "@/components/stats-row";
+import { StoryCard } from "@/components/story-card";
 
 export default function DashboardPage() {
   // min-h-dvh gives `main` a definite box to grow into; the ancestors only set
@@ -32,7 +32,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <PhotoStack />
+        <StoryCard />
 
         <div className="flex flex-col items-center gap-3">
           <Button variant="solid" color="blue" size="4" render={<Link href="/get-started" />}>
