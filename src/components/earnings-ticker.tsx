@@ -27,6 +27,8 @@ const sales: Sale[] = [
 
 const currency = (n: number) => `$${n.toLocaleString()}`;
 
+const ROTATE_INTERVAL_MS = 6000;
+
 const flip = {
   enter: { rotateX: -90, opacity: 0 },
   center: { rotateX: 0, opacity: 1 },
@@ -44,7 +46,7 @@ export function EarningsTicker() {
     const id = setInterval(() => {
       setIsFlipping(true);
       setIndex((i) => (i + 1) % sales.length);
-    }, 2800);
+    }, ROTATE_INTERVAL_MS);
     return () => clearInterval(id);
   }, []);
 

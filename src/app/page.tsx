@@ -12,12 +12,14 @@ export default function DashboardPage() {
 
       <main className="flex flex-1 flex-col items-center justify-center gap-12 px-6 py-16">
         <div className="flex flex-col items-center gap-3">
-          <Heading size="7" weight="bold" align="center" className="max-w-md">
-            People are earning right now
+          <Heading size="8" weight="bold" align="center" className="max-w-md leading-tight">
+            Complete tasks.
+            <br />
+            Earn money instantly.
           </Heading>
-          <Text size="3" color="gray" align="center" className="max-w-md">
+          {/* <Text size="3" color="gray" align="center" className="max-w-md">
             Complete tasks, earn money instantly.
-          </Text>
+          </Text> */}
         </div>
 
         <div className="flex w-full max-w-sm flex-col items-center gap-8">

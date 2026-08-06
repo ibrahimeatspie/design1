@@ -22,12 +22,12 @@ export function PhotoStack() {
       <motion.div
         className="flex w-max items-center"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 28, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 90, ease: "linear", repeat: Infinity }}
       >
         {track.map((caption, i) => (
           <div
             key={i}
-            className={`w-36 shrink-0 rounded-2xl bg-white p-2 pb-3 shadow-lg ${rotations[i % rotations.length]} ${
+            className={`w-36 shrink-0 rounded-2xl bg-white p-2 pb-3 shadow-[0_1px_5px_rgba(0,0,0,0.28)] ${rotations[i % rotations.length]} ${
               i > 0 ? "-ml-8" : ""
             }`}
           >
