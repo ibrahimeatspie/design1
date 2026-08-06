@@ -77,7 +77,7 @@ export function EarningsTicker() {
 
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
-                <Avatar size="4" radius="full" fallback={sale.name[0]} color={sale.color} />
+                <Avatar size="4" fallback={sale.name[0]} color={sale.color} />
                 <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-9 text-white ring-2 ring-[var(--color-panel-solid)]">
                   <TrendingUp size={12} strokeWidth={2.5} />
                 </span>
