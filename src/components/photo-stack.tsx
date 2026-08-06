@@ -2,51 +2,39 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Text } from "frosted-ui";
 
-interface Item {
-  name: string;
-  amount: string;
-  task: string;
-}
+const rotations = ["-rotate-6", "rotate-3", "-rotate-2"];
 
-const items: Item[] = [
-  { name: "Alex", amount: "$1,240", task: "clipping videos" },
-  { name: "Priya", amount: "$860", task: "product testing" },
-  { name: "Jordan", amount: "$2,100", task: "photography" },
-  { name: "Sam", amount: "$540", task: "delivery runs" },
-  { name: "Maya", amount: "$1,780", task: "editing reels" },
-  { name: "Theo", amount: "$920", task: "IRL activation" },
+const captions = [
+  "John bought his sister a birthday cake off Workforce tasks",
+  "Maria paid her rent early with her Workforce earnings",
+  "Diego surprised his mom with flowers this week",
+  "Sofia covered her phone bill in one afternoon",
+  "Leo bought concert tickets for his friends",
+  "Ava treated her dog to a vet visit",
 ];
 
-// Duplicated once so animating the track from 0% to -50% loops seamlessly.
-const track = [...items, ...items];
+const track = [...captions, ...captions];
 
 export function PhotoStack() {
   return (
-    <div
-      className="w-full max-w-md overflow-hidden py-4"
-      style={{
-        maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-      }}
-    >
+    <div className="w-full max-w-md overflow-hidden py-4">
       <motion.div
-        className="flex w-max gap-4"
+        className="flex w-max items-center"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 22, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 28, ease: "linear", repeat: Infinity }}
       >
-        {track.map((item, i) => (
+        {track.map((caption, i) => (
           <div
             key={i}
-            className="relative h-44 w-32 shrink-0 overflow-hidden rounded-2xl border border-gray-a5 shadow-lg"
+            className={`w-36 shrink-0 rounded-2xl bg-white p-2 pb-3 shadow-lg ${rotations[i % rotations.length]} ${
+              i > 0 ? "-ml-8" : ""
+            }`}
           >
-            <Image src="/placeholder-photo.png" alt="" fill sizes="128px" className="object-cover" />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-2 pt-5 pb-1.5">
-              <Text size="1" weight="medium" className="block truncate text-white">
-                {item.name} made {item.amount} doing {item.task}
-              </Text>
+            <div className="relative h-32 w-full overflow-hidden rounded-lg">
+              <Image src="/placeholder-photo.png" alt="" fill sizes="150px" className="object-cover" />
             </div>
+            <p className="mt-2 px-0.5 text-[10px] leading-snug text-black">{caption}</p>
           </div>
         ))}
       </motion.div>
