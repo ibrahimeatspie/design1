@@ -6,11 +6,14 @@ import { SiteHeader } from "@/components/site-header";
 import { StatsRow } from "@/components/stats-row";
 
 export default function DashboardPage() {
+  // min-h-dvh gives `main` a definite box to grow into; the ancestors only set
+  // percentage min-heights, so flex-1 had nothing to divide up and the leftover
+  // space all collected below the content.
   return (
-    <div className="flex w-full flex-1 flex-col">
+    <div className="flex min-h-dvh w-full flex-1 flex-col">
       <SiteHeader />
 
-      <main className="flex flex-1 flex-col items-center justify-center gap-12 px-6 py-16">
+      <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-6">
         <div className="flex flex-col items-center gap-3">
           <Heading size="8" weight="bold" align="center" className="max-w-md leading-tight">
             Complete tasks.
@@ -22,16 +25,16 @@ export default function DashboardPage() {
           </Text> */}
         </div>
 
-        <div className="flex w-full max-w-sm flex-col items-center gap-8">
+        <div className="flex w-full max-w-sm flex-col items-center gap-6">
           <EarningsTicker />
-          <div className="w-full border-t border-gray-a5 pt-8">
+          <div className="w-full border-t border-gray-a5 pt-6">
             <StatsRow />
           </div>
         </div>
 
         <PhotoStack />
 
-        <div className="-mt-6 flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3">
           <Button variant="solid" color="blue" size="4" render={<Link href="/get-started" />}>
             Get started
           </Button>
