@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button, Heading, Text } from "frosted-ui";
 import { EarningsTicker } from "@/components/earnings-ticker";
+import { PhotoStack } from "@/components/photo-stack";
 import { SiteHeader } from "@/components/site-header";
 import { StatsRow } from "@/components/stats-row";
 
@@ -25,6 +26,8 @@ export default function DashboardPage() {
             <StatsRow />
           </div>
         </div>
+
+        <PhotoStack />
 
         <div className="flex flex-col items-center gap-3">
           <Button variant="solid" color="blue" size="4" render={<Link href="/get-started" />}>

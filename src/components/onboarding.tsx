@@ -239,7 +239,13 @@ export function Onboarding() {
                 </Text>{" "}
                 tasks matching what you picked.
               </Text>
-              <Button variant="solid" color="blue" size="4" className="mt-2">
+              <Button
+                variant="solid"
+                color="blue"
+                size="4"
+                className="mt-2"
+                render={<Link href="/tasks" />}
+              >
                 Browse tasks
               </Button>
             </div>
