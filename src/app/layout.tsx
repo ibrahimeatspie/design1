@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           accentColor="blue"
           grayColor="gray"
           hasBackground
-          className="min-h-full flex flex-col [--default-font-family:var(--font-geist-sans)] [--code-font-family:var(--font-geist-mono)]"
+          className="min-h-full flex flex-1 flex-col [--default-font-family:var(--font-geist-sans)] [--code-font-family:var(--font-geist-mono)]"
         >
           {children}
         </Theme>

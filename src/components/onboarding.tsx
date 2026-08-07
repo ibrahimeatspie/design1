@@ -50,6 +50,15 @@ const assets: Option[] = [
 
 const TOTAL_STEPS = 3;
 
+/** Answers ride along in the URL so the pack page can curate without any store. */
+function packHref(interest: string | null, owned: string[]) {
+  const params = new URLSearchParams();
+  if (interest) params.set("interest", interest);
+  if (owned.length > 0) params.set("owned", owned.join(","));
+  const query = params.toString();
+  return query ? `/pack?${query}` : "/pack";
+}
+
 const backButtonClass =
   "flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-a3 text-gray-11 transition-colors hover:bg-gray-a4";
 
@@ -237,16 +246,17 @@ export function Onboarding() {
                 <Text size="2" weight="bold" color="gray" highContrast>
                   {12 + owned.length * 7}
                 </Text>{" "}
-                tasks matching what you picked.
+                tasks matching what you picked, and narrowed them to a pack of five.
               </Text>
               <Button
                 variant="solid"
                 color="blue"
                 size="4"
                 className="mt-2"
-                render={<Link href="/tasks" />}
+                nativeButton={false}
+                render={<Link href={packHref(interest, owned)} />}
               >
-                Browse tasks
+                Open your pack
               </Button>
             </div>
           )}
