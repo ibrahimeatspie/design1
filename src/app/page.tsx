@@ -35,7 +35,13 @@ export default function DashboardPage() {
         <PhotoStack />
 
         <div className="flex flex-col items-center gap-3">
-          <Button variant="solid" color="blue" size="4" render={<Link href="/get-started" />}>
+          <Button
+            variant="solid"
+            color="blue"
+            size="4"
+            nativeButton={false}
+            render={<Link href="/get-started" />}
+          >
             Get started
           </Button>
           <Text size="1" color="gray" align="center">
